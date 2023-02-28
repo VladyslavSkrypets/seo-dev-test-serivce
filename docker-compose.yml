@@ -1,0 +1,13 @@
+services:
+  web_api:
+    build:
+      dockerfile: ./web/Dockerfile
+    container_name: web_api
+    volumes:
+      - ./:/app:rw
+    ports:
+      - "80:80"
+      - "5555:5555"
+    environment:
+      ENVIRONMENT: ${ENVIRONMENT}
+      DATABASE_NAME: ${DATABASE_NAME}
